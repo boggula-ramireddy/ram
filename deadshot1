@@ -1,1 +1,20 @@
-this is ramireddy
+======= 8.INTEGRATE KUBERNETS AND DOCKER========
+ sudo apt-get update
+ sudo apt-get install docker.io -y
+ sudo usermod -aG docker $USER && newgrp docker
+ curl -LO https://storage.googleapis.com/minikube/releases/latest/minikube-linux-amd64
+ sudo install minikube-linux-amd64 /usr/local/bin/minikube 
+ sudo snap install kubectl --classic
+ minikube start --driver=docker
+ minikube status
+ kubectl get pods
+ kubectl get svc
+
+
+========9.RUNNING APP=========
+ kubectl create deployment hello-node --image=k8s.gcr.io/echoserver:1.4
+ kubectl expose deployment hello-node --type=NodePort --port=8080
+ kubectl get svc
+ minikube ip
+ curl 192.168.49.2:32162                  -/////> copy the address in treminaland port number
+ minikube service hello-nod
